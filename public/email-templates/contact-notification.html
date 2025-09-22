@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeni Əlaqə Mesajı - SON Təmizlik Məhsulları</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            color: white;
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="grain" width="100" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.1"/><circle cx="30" cy="5" r="1" fill="white" opacity="0.08"/><circle cx="50" cy="15" r="1.5" fill="white" opacity="0.12"/><circle cx="70" cy="8" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="12" r="1.5" fill="white" opacity="0.08"/></pattern></defs><rect width="100" height="20" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 32px 24px;
+        }
+        
+        .alert-box {
+            background: linear-gradient(90deg, #eff6ff, #f0f9ff);
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+        }
+        
+        .alert-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+        
+        .alert-text {
+            color: #1e40af;
+            font-size: 14px;
+        }
+        
+        .message-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        .field-group {
+            margin-bottom: 20px;
+        }
+        
+        .field-label {
+            font-weight: 600;
+            color: #374151;
+            font-size: 14px;
+            margin-bottom: 6px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .field-value {
+            font-size: 16px;
+            color: #111827;
+            background: white;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            display: block;
+            width: 100%;
+        }
+        
+        .field-value.message {
+            min-height: 100px;
+            line-height: 1.7;
+            white-space: pre-wrap;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .timestamp {
+            background: #f3f4f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 24px 0;
+            text-align: center;
+        }
+        
+        .timestamp-label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .timestamp-value {
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        .actions {
+            background: #f9fafb;
+            padding: 24px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .action-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0 8px;
+            transition: transform 0.2s;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-1px);
+        }
+        
+        .action-button.secondary {
+            background: #6b7280;
+        }
+        
+        .footer {
+            background: #1f2937;
+            color: #9ca3af;
+            padding: 24px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .footer-text {
+            margin-bottom: 16px;
+        }
+        
+        .footer-links {
+            margin-top: 16px;
+        }
+        
+        .footer-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+        
+        .priority-high {
+            border-left-color: #ef4444;
+            background: linear-gradient(90deg, #fef2f2, #fef2f2);
+        }
+        
+        .priority-high .alert-title,
+        .priority-high .alert-text {
+            color: #dc2626;
+        }
+        
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-button {
+                display: block;
+                margin: 8px 0;
+            }
+            
+            .header {
+                padding: 24px 16px;
+            }
+            
+            .content {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">🧽 SON</div>
+            <div class="header-subtitle">Təmizlik Məhsullarında Güvənilir Brend</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Alert Box -->
+            <div class="alert-box">
+                <div class="alert-title">📩 Yeni Əlaqə Mesajı</div>
+                <div class="alert-text">Veb saytınızdan yeni bir müştəri mesajı alındı və diqqətinizi gözləyir.</div>
+            </div>
+            
+            <!-- Message Details Card -->
+            <div class="message-card">
+                <div class="field-group">
+                    <label class="field-label">👤 Müştəri Adı</label>
+                    <div class="field-value">{{from_name}}</div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="field-group">
+                        <label class="field-label">📧 E-poçt</label>
+                        <div class="field-value">{{reply_to}}</div>
+                    </div>
+                    
+                    <div class="field-group">
+                        <label class="field-label">📞 Telefon</label>
+                        <div class="field-value">{{phone}}</div>
+                    </div>
+                </div>
+                
+                <div class="field-group">
+                    <label class="field-label">🏢 Şirkət</label>
+                    <div class="field-value">{{company}}</div>
+                </div>
+                
+                <div class="field-group">
+                    <label class="field-label">💬 Mesaj</label>
+                    <div class="field-value message">{{message}}</div>
+                </div>
+            </div>
+            
+            <!-- Timestamp -->
+            <div class="timestamp">
+                <div class="timestamp-label">Mesaj Tarixi</div>
+                <div class="timestamp-value">{{current_date}}</div>
+            </div>
+        </div>
+        
+        <!-- Actions -->
+        <div class="actions">
+            <a href="mailto:{{reply_to}}" class="action-button">
+                📧 Cavab Ver
+            </a>
+            <a href="tel:{{phone}}" class="action-button secondary">
+                📞 Zəng Et
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">SON Təmizlik Məhsulları</div>
+            <div class="footer-text">
+                Bu avtomatik mesaj veb saytınızın əlaqə formasından göndərilmişdir.
+            </div>
+            <div class="footer-text">
+                📍 Ünvan: Gəncə şəh., Zülfü Hacıyev 56<br>
+                🆔 VÖEN: 2306001922
+            </div>
+            <div class="footer-links">
+                <a href="mailto:info@son.az">info@son.az</a>
+                <a href="https://son.az">son.az</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

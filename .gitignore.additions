@@ -1,0 +1,29 @@
+# Additional ignores for SON project
+
+# Uploads directory (exclude uploaded files but keep structure)
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Environment files
+.env.local
+.env.production
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp

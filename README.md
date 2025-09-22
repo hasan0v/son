@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SON Təmizlik Məhsulları
 
-## Getting Started
+Modern və funksional bir təmizlik məhsulları e-ticarət saytı. Next.js 15, TypeScript, Tailwind CSS və Prisma ilə hazırlanmışdır.
 
-First, run the development server:
+## 🌟 Xüsusiyyətlər
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 🎯 Ana Funksiyalar
+- **Məhsul Kataloqu** - Kateqoriyalar üzrə filtrlənə bilən məhsul siyahısı
+- **Əlaqə Formu** - EmailJS inteqrasiyası ilə birbaşa e-poçt göndərmə
+- **Admin Paneli** - Məhsul və kateqoriya idarəetməsi
+- **Şəkil Yükləmə** - Məhsul şəkillərinin local və ya URL vasitəsilə əlavə edilməsi
+- **Responsive Dizayn** - Bütün cihazlarda mükəmməl görünüm
+
+### 🔧 Texniki Xüsusiyyətlər
+- **Next.js 15** - App Router və Server Actions
+- **TypeScript** - Tam tip təhlükəsizliyi
+- **Prisma ORM** - PostgreSQL inteqrasiyası
+- **JWT Authentication** - Təhlükəsiz admin girişi
+- **Tailwind CSS** - Modern və responsive styling
+- **Framer Motion** - Səlis animasiyalar
+- **Zod Validation** - Form validasiyası
+- **EmailJS** - E-poçt göndərmə
+
+## 🚀 Texnologiyalar
+
+- **Frontend:** Next.js 15, React 19, TypeScript
+- **Backend:** Next.js API Routes, Server Actions
+- **Database:** PostgreSQL (Neon), Prisma ORM
+- **Styling:** Tailwind CSS, Shadcn-ui
+- **Animations:** Framer Motion
+- **Authentication:** JWT, HTTP-only cookies
+- **Forms:** React Hook Form, Zod validation
+- **Email:** EmailJS
+- **Deployment:** Vercel/VPS ready
+
+## 🚀 Qısa Başlanğıc
+
+1. **Dependency-ləri quraşdırın:**
+   ```bash
+   npm install
+   ```
+
+2. **Environment-i konfiqurasiya edin:**
+   ```bash
+   cp .env.example .env.local
+   ```
+
+3. **Database-i quraşdırın:**
+   ```bash
+   npx prisma generate
+   npx prisma migrate dev
+   npx prisma db seed
+   ```
+
+4. **Development serveri başladın:**
+   ```bash
+   npm run dev
+   ```
+
+Ətraflı quraşdırma təlimatları üçün [DEPLOYMENT.md](./DEPLOYMENT.md) faylına baxın.
+
+## 📁 Proyekt Strukturu
+
+```
+son/
+├── app/                    # Next.js App Router
+│   ├── admin/             # Admin panel səhifələri
+│   ├── api/               # API routes
+│   ├── products/          # Məhsul səhifələri
+│   └── layout.tsx         # Root layout
+├── components/            # React komponentləri
+│   ├── ui/               # Shadcn-ui komponentləri
+│   ├── forms/            # Form komponentləri
+│   ├── layout/           # Layout komponentləri
+│   ├── products/         # Məhsul komponentləri
+│   └── animations/       # Animasiya komponentləri
+├── lib/                  # Utility funksiyaları
+├── actions/              # Server Actions
+├── prisma/               # Database schema və seed
+└── public/              # Static fayllar
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📱 Səhifələr
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### İctimai Səhifələr
+- **Ana Səhifə** (`/`) - Hero, kateqoriyalar, featured məhsullar, əlaqə
+- **Məhsullar** (`/products`) - Filtrlənə bilən məhsul siyahısı
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Admin Paneli
+- **Dashboard** (`/admin`) - Statistikalar və qısa əməliyyatlar
+- **Məhsullar** (`/admin/products`) - Məhsul idarəetməsi
+- **Kateqoriyalar** (`/admin/categories`) - Kateqoriya idarəetməsi
+- **Mesajlar** (`/admin/messages`) - Əlaqə mesajları
 
-## Learn More
+## 🔐 Təhlükəsizlik
 
-To learn more about Next.js, take a look at the following resources:
+- **JWT Authentication** - 7 günlük token müddəti
+- **HTTP-only Cookies** - XSS qarşısında qorunma
+- **Middleware Protection** - Admin route-ların qorunması
+- **File Upload Validation** - Təhlükəsiz fayl yükləmə
+- **Security Headers** - CSP, XSS, CSRF qorunması
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📊 Performance
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Core Web Vitals** optimizasiyası
+- **Image Optimization** - Next.js Image komponent
+- **Caching Strategy** - Next.js cache tags
+- **Lazy Loading** - Suspense boundaries
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**SON** - Təmizlik məhsullarında keyfiyyət və etimad! 🧽✨
