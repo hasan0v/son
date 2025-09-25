@@ -50,7 +50,7 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY = uwj6ebDDZHgx8UzNu
 NEXT_PUBLIC_EMAILJS_SERVICE_ID = service_7th7e9g
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID = template_3ivrutj
 NEXT_PUBLIC_EMAILJS_AUTO_REPLY_TEMPLATE_ID = template_5g5qp6o
-ADMIN_SEED_EMAIL = vahid@son-cleaning.com
+ADMIN_SEED_EMAIL = vahid@son-temizlik.com
 ADMIN_SEED_PASSWORD = m&m2025
 ```
 
@@ -73,13 +73,13 @@ vercel --prod
 
 ✅ **Build Success**: No more DATABASE_URL errors
 ✅ **Sitemap Works**: Falls back to static pages if needed  
-✅ **Admin Access**: vahid@son-cleaning.com / m&m2025
+✅ **Admin Access**: vahid@son-temizlik.com / m&m2025
 ✅ **EmailJS**: All email functionality working
 ✅ **Database**: Production data storage
 
 ## 🔐 Your New Admin Credentials
 
-- **Email**: vahid@son-cleaning.com
+- **Email**: vahid@son-temizlik.com
 - **Password**: m&m2025
 - **URL**: https://son-bogwuz12i-ali-hasanovs-projects.vercel.app/admin/login
 

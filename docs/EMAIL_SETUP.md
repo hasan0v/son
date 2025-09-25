@@ -28,7 +28,7 @@
 **Template Settings in EmailJS:**
 - **To Email**: `{{to_email}}` (this will be the customer's email)
 - **To Name**: `{{to_name}}` (this will be the customer's name)  
-- **From Email**: Your business email (e.g., info@sontemizlik.az)
+- **From Email**: Your business email (e.g., info@son-temizlik.com)
 - **From Name**: SON Təmizlik Məhsulları
 
 **Template Variables:**

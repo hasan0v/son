@@ -2,7 +2,6 @@
 
 import { login } from '@/lib/auth'
 import { clearAdminCookie } from '@/lib/cookies'
-import { redirect } from 'next/navigation'
 
 export async function loginAction(formData: FormData) {
   try {
@@ -10,14 +9,13 @@ export async function loginAction(formData: FormData) {
     const password = String(formData.get('password') || '')
     
     await login(email, password)
+    return { success: true }
   } catch {
-    throw new Error('Login failed')
+    return { success: false, error: 'Login failed' }
   }
-  
-  redirect('/admin')
 }
 
 export async function logoutAction() {
   await clearAdminCookie()
-  redirect('/admin/login')
+  return { success: true }
 }

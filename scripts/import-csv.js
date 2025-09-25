@@ -18,16 +18,22 @@ async function importProducts() {
       console.log(`  - ${cat.name} (ID: ${cat.id})`)
     })
     
-    // Create category mapping based on category names
-    const categoryMap = {
-      'cmfr15k2s0001eqtwpz7ln9qc': 'cmfvfpc8x0001eq402k23bbdz', // Qabyuyan Maye
-      'cmfr15k310002eqtwu8y96pi4': 'cmfvfpd7l0002eq40sryqpnli', // Duru Ağardıcı
-      'cmfr15k380003eqtw5nfkjc73': 'cmfvfpdt80003eq40jxwn34jw', // Toz Ağardıcı
-      'cmfr15k3g0004eqtw45yjynuo': 'cmfvfpeex0004eq40oe43fnkg', // Maye Sabun
-      'cmfr15k3n0005eqtwd3kximxa': 'cmfvfpf0k0005eq40ah4whksh', // Xlor
-    }
+    // Create dynamic category mapping from current database
+    const categoryMap = {}
+    const categoryNameToId = {}
     
-    const defaultCategory = 'cmfvfpc8x0001eq402k23bbdz' // Qabyuyan Maye as default
+    categories.forEach(cat => {
+      categoryNameToId[cat.name] = cat.id
+    })
+    
+    // Map old CSV category IDs to new database category IDs
+    categoryMap['cmfr15k2s0001eqtwpz7ln9qc'] = categoryNameToId['Qabyuyan Maye'] || categoryNameToId['Qabyuyan Maye']
+    categoryMap['cmfr15k310002eqtwu8y96pi4'] = categoryNameToId['Duru Ağardıcı'] || categoryNameToId['Qabyuyan Maye']
+    categoryMap['cmfr15k380003eqtw5nfkjc73'] = categoryNameToId['Toz Ağardıcı'] || categoryNameToId['Qabyuyan Maye']
+    categoryMap['cmfr15k3g0004eqtw45yjynuo'] = categoryNameToId['Maye Sabun'] || categoryNameToId['Qabyuyan Maye']
+    categoryMap['cmfr15k3n0005eqtwd3kximxa'] = categoryNameToId['Xlor'] || categoryNameToId['Qabyuyan Maye']
+    
+    const defaultCategory = categoryNameToId['Qabyuyan Maye'] // Use current Qabyuyan Maye ID as default
     
     const products = []
     

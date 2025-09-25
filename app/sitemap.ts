@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://son.az' // Update with your actual domain
+  const baseUrl = 'https://son-temizlik.com' // Update with your actual domain
   
   // Static pages that don't require database access
   const staticPages = [

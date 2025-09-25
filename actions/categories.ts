@@ -5,7 +5,6 @@ import { revalidateTag, revalidatePath } from 'next/cache'
 import { CATEGORIES_TAG, PRODUCTS_TAG } from '@/lib/cache'
 import { categorySchema } from '@/lib/validators'
 import { toSlug } from '@/lib/slug'
-import { redirect } from 'next/navigation'
 
 export async function createCategoryAction(formData: FormData) {
   try {
@@ -98,16 +97,10 @@ export async function deleteCategoryAction(id: string) {
 
 export async function createCategoryAndRedirect(formData: FormData) {
   const result = await createCategoryAction(formData)
-  if (result.success) {
-    redirect('/admin/categories')
-  }
-  throw new Error(result.error)
+  return result
 }
 
 export async function updateCategoryAndRedirect(id: string, formData: FormData) {
   const result = await updateCategoryAction(id, formData)
-  if (result.success) {
-    redirect('/admin/categories')
-  }
-  throw new Error(result.error)
+  return result
 }

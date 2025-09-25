@@ -35,8 +35,15 @@ export default function LoginForm() {
         formData.append('email', data.email)
         formData.append('password', data.password)
         
-        await loginAction(formData)
-        toast.success('Uğurla daxil oldunuz!')
+        const result = await loginAction(formData)
+        
+        if (result.success) {
+          toast.success('Uğurla daxil oldunuz!')
+          window.location.href = '/admin' // Use window.location for reliable redirect
+        } else {
+          setError('E-poçt və ya şifrə yanlışdır')
+          toast.error('Giriş uğursuz oldu')
+        }
       } catch (error) {
         console.error('Login error:', error)
         setError('E-poçt və ya şifrə yanlışdır')
@@ -68,7 +75,7 @@ export default function LoginForm() {
               <Input
                 id="email"
                 type="email"
-                placeholder="admin@son.az"
+                placeholder="admin@son-temizlik.com"
                 {...register('email')}
                 className={errors.email ? 'border-red-500' : ''}
               />

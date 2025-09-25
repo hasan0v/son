@@ -52,14 +52,19 @@ export default function CategoryForm({ initialData, isLoading = false }: Categor
       formData.append('desc', data.desc || '')
 
       // Call the appropriate server action
+      let result
       if (initialData?.id) {
-        await updateCategoryAndRedirect(initialData.id, formData)
+        result = await updateCategoryAndRedirect(initialData.id, formData)
       } else {
-        await createCategoryAndRedirect(formData)
+        result = await createCategoryAndRedirect(formData)
       }
 
-      // Redirect to categories list
-      router.push('/admin/categories')
+      if (result.success) {
+        // Redirect to categories list
+        router.push('/admin/categories')
+      } else {
+        throw new Error(result.error)
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Xəta baş verdi')
     } finally {

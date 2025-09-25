@@ -126,14 +126,19 @@ export default function ProductForm({ categories, initialData, isLoading = false
       if (data.featured) formData.append('featured', 'on')
 
       // Call the appropriate server action
+      let result
       if (initialData?.id) {
-        await updateProductFromForm(initialData.id, formData)
+        result = await updateProductFromForm(initialData.id, formData)
       } else {
-        await createProductFromForm(formData)
+        result = await createProductFromForm(formData)
       }
 
-      // Redirect to products list
-      router.push('/admin/products')
+      if (result.success) {
+        // Redirect to products list
+        router.push('/admin/products')
+      } else {
+        throw new Error(result.error)
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Xəta baş verdi')
     } finally {

@@ -42,7 +42,7 @@ console.log(process.env.NEXT_PUBLIC_EMAILJS_AUTO_REPLY_TEMPLATE_ID || 'template_
 console.log('')
 
 console.log('ADMIN_SEED_EMAIL')
-console.log(process.env.ADMIN_SEED_EMAIL || 'vahid@son-cleaning.com')
+console.log(process.env.ADMIN_SEED_EMAIL || 'vahid@son-temizlik.com')
 console.log('')
 
 console.log('ADMIN_SEED_PASSWORD')

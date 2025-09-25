@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   authors: [{ name: "SON Təmizlik Məhsulları" }],
   creator: "SON",
   publisher: "SON",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://son-temizlik.com'),
   openGraph: {
     type: 'website',
     locale: 'az_AZ',

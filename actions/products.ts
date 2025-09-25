@@ -5,7 +5,6 @@ import { revalidateTag, revalidatePath } from 'next/cache'
 import { PRODUCTS_TAG } from '@/lib/cache'
 import { productSchema } from '@/lib/validators'
 import { toSlug } from '@/lib/slug'
-import { redirect } from 'next/navigation'
 
 type ProductInput = {
   title: string
@@ -119,37 +118,35 @@ export async function createProductFromForm(formData: FormData) {
     if (input.packSize === '') input.packSize = undefined
 
     const result = await createProductAction(input)
-    
-    if (result.success) {
-      redirect('/admin/products')
-    }
-    throw new Error(result.error)
+    return result
   } catch (error) {
     console.error('createProductFromForm error:', error)
-    throw error
+    return { success: false, error: 'Məhsul yaradılarkən xəta baş verdi' }
   }
 }
 
 export async function updateProductFromForm(id: string, formData: FormData) {
-  const input: ProductInput = {
-    title: formData.get('title') as string,
-    categoryId: formData.get('categoryId') as string,
-    description: formData.get('description') as string || undefined,
-    imageUrl: formData.get('imageUrl') as string || undefined,
-    volume: formData.get('volume') as string || undefined,
-    packSize: formData.get('packSize') as string || undefined,
-    featured: formData.get('featured') === 'on',
-  }
+  try {
+    const input: ProductInput = {
+      title: formData.get('title') as string,
+      categoryId: formData.get('categoryId') as string,
+      description: formData.get('description') as string || undefined,
+      imageUrl: formData.get('imageUrl') as string || undefined,
+      volume: formData.get('volume') as string || undefined,
+      packSize: formData.get('packSize') as string || undefined,
+      featured: formData.get('featured') === 'on',
+    }
 
-  // Clean up empty strings to undefined
-  if (input.description === '') input.description = undefined
-  if (input.imageUrl === '') input.imageUrl = undefined
-  if (input.volume === '') input.volume = undefined
-  if (input.packSize === '') input.packSize = undefined
+    // Clean up empty strings to undefined
+    if (input.description === '') input.description = undefined
+    if (input.imageUrl === '') input.imageUrl = undefined
+    if (input.volume === '') input.volume = undefined
+    if (input.packSize === '') input.packSize = undefined
 
-  const result = await updateProductAction(id, input)
-  if (result.success) {
-    redirect('/admin/products')
+    const result = await updateProductAction(id, input)
+    return result
+  } catch (error) {
+    console.error('updateProductFromForm error:', error)
+    return { success: false, error: 'Məhsul yenilənərkən xəta baş verdi' }
   }
-  throw new Error(result.error)
 }
