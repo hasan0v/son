@@ -8,13 +8,25 @@ import { Suspense } from 'react'
 export const revalidate = 1800 // Revalidate every 30 minutes
 
 export const metadata = {
-  title: 'SON | Məhsullar - Təmizlik Məhsulları Kataloqu',
-  description: 'SON təmizlik məhsulları - qabyuyan maye, ağardıcı, sabun və digər keyfiyyətli məhsullar. Topdan satış üçün uyğun qiymətlər.',
-  keywords: 'son məhsulları, təmizlik məhsulları, qabyuyan maye, ağardıcı, sabun, katalog, topdan satış',
+  title: 'Təmizlik Məhsulları | Qabyuyan Maye, Ağardıcı, Təmizlik Vasitələri - SON Gəncə',
+  description: 'Gəncədə təmizlik məhsulları - qabyuyan maye, ağardıcı, maye sabun, xlor, təmizlik vasitələri. SON keyfiyyəti ilə topdan və pərakəndə satış. Sürətli çatdırılma və ucuz qiymətlər.',
+  keywords: 'təmizlik məhsulları, qabyuyan maye, ağardıcı, maye sabun, xlor, təmizlik vasitələri, təmizlik, temizlik, temizlik vasiteleri, gəncə təmizlik, duru ağardıcı, toz ağardıcı, ev təmizlik məhsulları, professional təmizlik, ucuz təmizlik məhsulları, topdan təmizlik məhsulları, son təmizlik məhsulları',
   openGraph: {
-    title: 'SON Məhsulları - Təmizlik Məhsulları Kataloqu',
-    description: 'SON təmizlik məhsulları kataloqunda qabyuyan maye, ağardıcı, sabun və digər keyfiyyətli məhsulları tapa bilərsiniz.',
+    title: 'Təmizlik Məhsulları Kataloqu | SON Gəncə',
+    description: 'Keyfiyyətli təmizlik məhsulları - qabyuyan maye, ağardıcı, maye sabun və təmizlik vasitələri. Gəncədə topdan satış.',
     type: 'website',
+    url: 'https://son-temizlik.com/products',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'SON Təmizlik Məhsulları',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://son-temizlik.com/products',
   },
 }
 

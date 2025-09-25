@@ -5,6 +5,7 @@ import Section from '@/components/common/Section'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import VideoHeroSection from '@/components/sections/VideoHeroSection'
+import SEOSection from '@/components/sections/SEOSection'
 import { getCategories, getFeaturedProducts } from '@/lib/data'
 
 // Dynamically import client components that use motion
@@ -27,6 +28,7 @@ const ContactForm = dynamic(() => import('@/components/forms/ContactForm'), {
 // Import animated sections with ssr: false since this is a client component
 const AnimatedCategoriesGrid = dynamic(() => import('@/components/animations/AnimatedSections').then(mod => ({ default: mod.AnimatedCategoriesGrid })), { ssr: false })
 const AnimatedAboutSection = dynamic(() => import('@/components/animations/AnimatedSections').then(mod => ({ default: mod.AnimatedAboutSection })), { ssr: false })
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection'), { ssr: false })
 
 interface Category {
   id: string
@@ -130,6 +132,9 @@ export default function HomePage({ initialCategories = [], initialFeaturedProduc
         )}
       </Section>
 
+      {/* SEO Optimized Content Section */}
+      <SEOSection />
+
       {/* About Section */}
       <Section 
         title="Haqqımızda"
@@ -137,6 +142,9 @@ export default function HomePage({ initialCategories = [], initialFeaturedProduc
       >
         <AnimatedAboutSection />
       </Section>
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Contact Section */}
       <Section 

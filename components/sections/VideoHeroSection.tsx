@@ -106,15 +106,16 @@ export default function VideoHeroSection() {
               </h1>
             </motion.div>
 
-            {/* Description */}
+            {/* SEO-Optimized Description */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-lg sm:text-xl lg:text-2xl font-body text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
             >
-              Qabyuyan Maye, Ağardıcı, Sabun və daha çox məhsul — 
-              <span className="font-body-medium text-blue-200"> topdan satış üçün keyfiyyətli həllər</span>
+              <span className="font-body-medium text-blue-200">Gəncədə təmizlik məhsulları</span> - Qabyuyan Maye, Ağardıcı, Maye Sabun, Xlor və daha çox 
+              <span className="font-body-medium text-emerald-200"> keyfiyyətli təmizlik vasitələri</span>. 
+              Ev və peşəkar istifadə üçün ucuz qiymətlərlə.
             </motion.p>
 
             {/* CTA Buttons */}

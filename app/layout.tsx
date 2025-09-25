@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { organizationSchema, localBusinessSchema, websiteSchema } from "@/lib/schema";
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -30,21 +31,39 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "SON | Təmizlik Məhsulları",
-  description: "SON — Qabyuyan Maye, Ağardıcı, Sabun və daha çoxunu topdan üzrə təqdim edir.",
-  keywords: "son, təmizlik məhsulları, qabyuyan maye, ağardıcı, sabun, topdan satış",
+  title: "SON Təmizlik Məhsulları | Qabyuyan Maye, Ağardıcı, Təmizlik Vasitələri Gəncə",
+  description: "Gəncədə keyfiyyətli təmizlik məhsulları - qabyuyan maye, ağardıcı, maye sabun, təmizlik vasitələri. SON keyfiyyəti ilə topdan və pərakəndə satış. Sürətli çatdırılma və ucuz qiymətlər.",
+  keywords: "təmizlik məhsulları, qabyuyan maye, ağardıcı, maye sabun, təmizlik vasitələri, təmizlik, temizlik, temizlik vasiteleri, temizlik vasitələri, təmizlik kimyəvi məhsulları, gəncə təmizlik, son təmizlik, xlor, duru ağardıcı, toz ağardıcı, ev təmizlik məhsulları, professional təmizlik, ucuz təmizlik məhsulları, keyfiyyətli təmizlik",
   authors: [{ name: "SON Təmizlik Məhsulları" }],
-  creator: "SON",
-  publisher: "SON",
+  creator: "SON Təmizlik Məhsulları",
+  publisher: "SON Təmizlik Məhsulları",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://son-temizlik.com'),
   openGraph: {
     type: 'website',
     locale: 'az_AZ',
     siteName: 'SON Təmizlik Məhsulları',
+    title: 'SON - Təmizlik Məhsulları | Gəncə',
+    description: 'Keyfiyyətli təmizlik məhsulları - qabyuyan maye, ağardıcı, təmizlik vasitələri. Gəncədə topdan və pərakəndə satış.',
+    url: 'https://son-temizlik.com',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'SON Təmizlik Məhsulları Logo',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    title: 'SON Təmizlik Məhsulları | Gəncə',
+    description: 'Keyfiyyətli təmizlik məhsulları - qabyuyan maye, ağardıcı, təmizlik vasitələri. Topdan və pərakəndə satış.',
+    images: ['/logo.png'],
   },
+  alternates: {
+    canonical: 'https://son-temizlik.com',
+  },
+  category: 'Təmizlik Məhsulları',
   robots: {
     index: true,
     follow: true,
@@ -83,6 +102,26 @@ export default function RootLayout({
         {/* Theme and PWA */}
         <meta name="theme-color" content="#1e40af" />
         <meta name="color-scheme" content="light" />
+        
+        {/* Structured Data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${poppins.variable} ${nunito.variable} font-sans bg-white text-gray-900 antialiased`}>
         <Navbar />
