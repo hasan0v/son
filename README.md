@@ -57,8 +57,6 @@ Modern və funksional bir təmizlik məhsulları e-ticarət saytı. Next.js 15, 
    npm run dev
    ```
 
-Ətraflı quraşdırma təlimatları üçün [DEPLOYMENT.md](./DEPLOYMENT.md) faylına baxın.
-
 ## 📁 Proyekt Strukturu
 
 ```
